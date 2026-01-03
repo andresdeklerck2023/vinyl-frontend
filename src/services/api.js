@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL: "https://vinyl-backend.onrender.com", // backend URL
+  baseURL: "https://vinyl-backend-6oiw.onrender.com", // backend URL
 });
 
 // functie om token toe te voegen aan headers
