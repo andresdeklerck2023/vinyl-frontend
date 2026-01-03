@@ -1,0 +1,425 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.button {
+  padding: 8px 16px;
+  height: 3rem;
+  width: 5rem;
+  margin-right: 8px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #4338ca;
+}
+
+.button_search_in_discogs{
+  padding: 8px 16px;
+  height: 3rem;
+  width: 6rem;
+  margin-right: 8px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.button_add {
+  display: block;
+  padding: 8px 16px;
+  height: 3rem;
+  width: 6rem;
+  margin: 20px auto;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.button_add:hover {
+    background-color: #4338ca;
+}
+
+.button_delete {
+  padding: 8px 16px;
+  margin-right: 8px;
+  height: 3rem;
+  width: 5rem;
+  background-color: #f83939;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.button_delete:hover {
+  background-color: #b12121;
+}
+
+.button_tracklist{
+  padding: 8px 16px;
+  margin-right: 8px;
+  height: 3rem;
+  width: 6rem;
+  background-color: #d9d924;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.button_tracklist:hover {
+  background-color:#939328
+}
+
+.button_spotify {
+  padding: 8px 16px;
+  margin-right: 8px;
+  height: 3rem;
+  width: 6rem;
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.button_spotify:hover {
+  background-color: #489328;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.searchInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 50rem;
+  margin-bottom: 15px;
+
+  font-size: 1rem;
+}
+
+.vinylList {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.vinylItem {
+  width: 50rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 12px;
+  background-color: #fafafa;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.vinylItem:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.vinylImage {
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.vinylInfo {
+  flex-grow: 1;
+}
+
+.vinylInfo strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #111;
+}
+
+.vinylInfo div {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.vinylItem .button {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+
+/* --- TRACKLIST COLLAPSE ANIMATION --- */
+.tracklistWrapper {
+  overflow: hidden;
+  max-height: 0;
+  display: block;
+  width: 100%;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  opacity: 0;
+  margin-top: 12px;
+  flex-basis: 100%;
+}
+
+.tracklistWrapper.open {
+  max-height: 500px; /* genoeg voor lange tracklists */
+  opacity: 1;
+}
+
+.tracklistBox {
+  background: #f5f5f7;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  list-style: none;
+
+
+  display: flex;     /* horizontaal */
+  flex-wrap: wrap;   /* laat items doorlopen op volgende regel als het te lang is */
+  gap: 10px;
+}
+
+.tracklistBox li {
+  padding: 4px 0;
+  border-bottom: none;    /* horizontaal niet gewenst */
+  border-right: 1px solid #ddd; /* optioneel scheidingslijn */
+  padding-right: 12px;
+}
+
+/* optie: laatste item geen lijn */
+.tracklistBox li:last-child {
+  border-right: none;
+}
+
+.wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+
+}
+
+/* --- Toggle Switch --- */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  margin-left: 100px;
+  padding: 4px;  
+  border-radius: 40px;
+}
+
+.toggle:before,
+.toggle:after {
+  content: '';
+  display: table;
+}
+
+.toggle:after {
+  clear: both;
+}
+
+.toggle_bg {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 100%;  
+  height: 100%;
+  background-color: #C0E6F6;
+  border-radius: 40px;
+  border: 4px solid #81C0D5;
+  transition: all .1s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.toggle_input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;  
+  height: 100%;
+  border: 1px solid red;
+  border-radius: 40px;
+  z-index: 2;
+  opacity: 0;
+}
+
+.toggle_switch {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
+  background-color: #F5EB42;
+  border: 4px solid #E4C74D;
+  border-radius: 50%;
+  transition: all .1s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+/* --- Switch Figure --- */
+.toggle_switch_figure {
+  position: absolute;
+  bottom: -14px;
+  left: -50px;
+  display: block;
+  width: 80px;
+  height: 30px;
+  border: 8px solid #D4D4D2;
+  border-radius: 20px;  
+  background-color: #fff;
+  transform: scale(0.4);
+  transition: all .12s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.toggle_switch_figure::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: -65px;
+  right: -42px;
+  width: 15px;
+  height: 15px;
+  border: 8px solid #D4D4D2;
+  border-radius: 100%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotateZ(70deg);
+  background-color: #fff;
+}
+
+.toggle_switch_figure::before {
+  content: '';
+  display: block;
+  position: relative;
+  top: -25px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  border: 8px solid #D4D4D2;
+  border-radius: 100%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotateZ(30deg);
+  background-color: #fff;
+}
+
+/* --- Switch Figure Alt (Night craters) --- */
+.toggle_switch_figureAlt {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  transform: scale(0);
+}
+
+.toggle_switch_figureAlt::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 18px;
+  width: 7px;
+  height: 7px;
+  background-color: #EFEEDA;
+  border-radius: 100%;
+  border: 4px solid #DEE1C5;
+}
+
+.toggle_switch_figureAlt::after {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: 15px;
+  width: 2px;
+  height: 2px;
+  background-color: #EFEEDA;
+  border-radius: 100%;
+  border: 4px solid #DEE1C5;
+}
+
+/* --- Night State --- */
+.toggle_input:checked ~ .toggle_switch {
+  margin-left: 0;
+  border-color: #DEE1C5;
+  background-color: #FFFDF2;
+}
+
+.toggle_input:checked ~ .toggle_bg {
+  background-color: #484848;
+  border-color: #202020;
+}
+
+.toggle_input:checked ~ .toggle_switch .toggle_switch_figure {
+  margin-left: 40px;
+  opacity: 0;
+  transform: scale(0.1);
+}
+
+.toggle_input:checked ~ .toggle_switch .toggle_switch_figureAlt {
+  transform: scale(1);
+}
+
+.night input,
+.night .searchInput,
+.night .form input {
+  background-color: #121212;
+  color: #f5f5f5;
+  border: 1px solid #555;
+}
+
+.night .vinylItem {
+  background-color: #121212;
+  border-color: #444;
+}
+
+.night .tracklistBox {
+  color: red;
+}
+
